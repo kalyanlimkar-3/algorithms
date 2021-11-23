@@ -1,12 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func main() {
 	var arr [5]int
 
-	for i, j := 0, 5; i < 5; i, j = i+1, j-1 {
-		arr[i] = j
+	// Seed the random generator
+	rand.Seed(time.Now().UnixNano())
+
+	for i := 0; i < 5; i++ {
+		arr[i] = rand.Intn(200)	// Returns random number between 0 to 200.
 	}
 
 	fmt.Println("Input array:", arr)
